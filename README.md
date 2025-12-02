@@ -60,11 +60,11 @@ LangGraph 기반 도구 체계를 활용하여 질문을 분류하고, 필요 �
 
 아래 다이어그램은 질문 처리 흐름을 나타냅니다.
 
-### Diagram
+### 전체 기능 흐름
 
 ![전체 흐름](./screenshots/diagram2.png)
 
-### LangGraph 노드 연결
+### LangGraph 노드 연결 구조
 
 ```plaintext
              +-----------+
