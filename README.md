@@ -3,9 +3,16 @@
 한국 민법 관련 질문에 대해 AI가 민법 조문과 FAQ를 기반으로 정밀하게 답변합니다.
 LangGraph 기반 도구 체계를 활용하여 질문을 분류하고, 필요 시 FAQ 또는 법률 문서 검색을 수행합니다.
 
+이 프로젝트는 단순한 LLM 응답에 그치지 않고, RAG(Retrieval-Augmented Generation) 아키텍처를 기반으로 민법 조문과 FAQ를 활용한 **출처 기반 정밀 답변**을 제공합니다.
+
 ---
 
 ## 개발 환경
+
+<p align="left">
+  <img src="https://img.shields.io/badge/RAG-Supported-blueviolet?style=for-the-badge" />
+</p>
+
 
 ### LLM Framework
 
@@ -27,6 +34,16 @@ LangGraph 기반 도구 체계를 활용하여 질문을 분류하고, 필요 �
 - **Pinecone**: 벡터 검색 인덱싱 (조문/FAQ)
 - **OpenAI GPT-4.1**: LLM 응답 생성
 - **Markdown**: PDF → Markdown 조문 전처리
+
+## 아키텍처 구조 (RAG 기반)
+
+이 프로젝트는 Retrieval-Augmented Generation (RAG) 구조를 기반으로 합니다.
+
+- **Retrieval**: 질문에 관련된 민법 조문 또는 FAQ 문서를 Pinecone을 통해 벡터 검색
+- **Augmentation**: 검색된 문서를 GPT-4.1에 입력값으로 제공
+- **Generation**: 검색 결과를 인용하여 정확한 응답 생성
+
+이를 통해 단순한 LLM 기반 답변보다 근거 기반, 출처 명시형 응답이 가능해집니다.
 
 ## 주요 기능
 
@@ -58,7 +75,7 @@ LangGraph 기반 도구 체계를 활용하여 질문을 분류하고, 필요 �
 
 ## LangGraph 흐름
 
-아래 다이어그램은 질문 처리 흐름을 나타냅니다.
+질문 처리 흐름은 LangGraph 노드를 활용한 RAG 파이프라인으로 구성되어 있으며, 외부 문서 검색과 LLM 기반 응답 생성을 결합합니다.
 
 ### 전체 기능 흐름
 
